@@ -13,7 +13,8 @@ class YummyMenuListViewModel: ObservableObject {
     @Published var selectedItems: [Item] = []
     @Published var items: [Menu] = Menu.allItems()
     @Published var placedOrder: Bool = false
-    
+    @Published var customerName: String = ""
+
     private var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
@@ -38,7 +39,7 @@ class YummyMenuListViewModel: ObservableObject {
     }
 
     func placeOrderFor(name: String) {
-        CoreDataManager.saveOrderDetails(for: name, details: selectedItems, totalPrice: "\(totalPrice())")
+        CoreDataManager.saveOrderDetails(for: name.isEmpty ? "Customer" : name, details: selectedItems, totalPrice: "\(totalPrice())")
         placedOrder = true
     }
 }

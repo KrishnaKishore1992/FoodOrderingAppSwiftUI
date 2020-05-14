@@ -10,12 +10,8 @@ import SwiftUI
 
 struct YummyMenuList: View {
     
-    private let footerHeightLimit: (min: CGFloat, max: CGFloat) = (0, 100)
-    @State var footerHeight: CGFloat = 120
     @ObservedObject var viewModel: YummyMenuListViewModel = YummyMenuListViewModel()
     @Binding var isPresented: Bool
-    @State var placedOrder: Bool = false
-    @State var customerName: String = "Lalitha"
     
     var body: some View {
         
@@ -27,7 +23,7 @@ struct YummyMenuList: View {
                             .foregroundColor(Color.red)
                             .font(.caption)
                             .frame(alignment: Alignment(horizontal: .center, vertical: .bottom))
-                        TextField("Enter Customer Name", text: self.$customerName)
+                        TextField("Enter Customer Name", text: self.$viewModel.customerName)
                             .frame(width: 100, height: 30, alignment: .trailing)
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                             .foregroundColor(Color.red)
@@ -76,8 +72,8 @@ struct YummyMenuList: View {
                 Text("Cancel")
                     .foregroundColor(Color.red)
                 }, trailing: Button(action: {
-                    self.placedOrder.toggle()
-                    self.viewModel.placeOrderFor(name: self.customerName)
+                    self.viewModel.placedOrder.toggle()
+                    self.viewModel.placeOrderFor(name: self.viewModel.customerName)
                 }) {
                     Text("Place Order")
                         .foregroundColor(Color.red)
