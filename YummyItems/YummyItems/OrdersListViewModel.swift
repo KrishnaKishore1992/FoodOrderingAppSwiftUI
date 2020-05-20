@@ -27,6 +27,10 @@ class OrdersListViewModel: ObservableObject {
     
     @Published var ordersList: [Order] = []
     @Published var showAddOrder: Bool = false
+    @Published var searchText: String = ""
+    @Published var scopeTitle: String = ""
+    @Published var showsScopeBar: Bool = false
+
     var anyCancellable: AnyCancellable?
     
     init() {
@@ -47,6 +51,14 @@ class OrdersListViewModel: ObservableObject {
             return nil
         }
         return dateFormatter.string(from: date)
+    }
+    
+    func deleteOrders(at indexSet: IndexSet) {
+        for element in indexSet {
+            CoreDataManager.viewContext.delete(ordersList[element])
+        }
+        ordersList.remove(atOffsets: indexSet)
+        try? CoreDataManager.viewContext.save()
     }
     
     func getFormatted(currency: String) -> String {

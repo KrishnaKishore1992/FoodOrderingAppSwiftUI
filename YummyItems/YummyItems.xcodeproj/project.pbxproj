@@ -24,6 +24,7 @@
 		73E341C6246A8496000CC179 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E341C5246A8496000CC179 /* Items.swift */; };
 		73E341C8246A851D000CC179 /* YummyMenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E341C7246A851D000CC179 /* YummyMenuListViewModel.swift */; };
 		73FBE03824742CD800614A9E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FBE03724742CD800614A9E /* ImagePicker.swift */; };
+		73FD912A2474FF2D00867CF7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD91282474FD6D00867CF7 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		73E341C7246A851D000CC179 /* YummyMenuListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummyMenuListViewModel.swift; sourceTree = "<group>"; };
 		73FBE03724742CD800614A9E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		73FD91262474EB1600867CF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		73FD91282474FD6D00867CF7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				73255ECF246D105A00ABF3CA /* OrderDetailViewModel.swift */,
 				738E457D246BFC5E003E1F0D /* CoreDataManager.swift */,
 				73FBE03724742CD800614A9E /* ImagePicker.swift */,
+				73FD91282474FD6D00867CF7 /* SearchBar.swift */,
 				73E341C1246A847B000CC179 /* OrderItems.plist */,
 				73E341C5246A8496000CC179 /* Items.swift */,
 				73E341B3246A846A000CC179 /* Assets.xcassets */,
@@ -197,6 +200,7 @@
 				73E341B2246A8469000CC179 /* YummyMenuListView.swift in Sources */,
 				73255ED0246D105A00ABF3CA /* OrderDetailViewModel.swift in Sources */,
 				73E341C6246A8496000CC179 /* Items.swift in Sources */,
+				73FD912A2474FF2D00867CF7 /* SearchBar.swift in Sources */,
 				735BA6FD246C07490097346F /* OrdersListViewModel.swift in Sources */,
 				73E341B0246A8469000CC179 /* YummyItems.xcdatamodeld in Sources */,
 				738E457E246BFC5E003E1F0D /* CoreDataManager.swift in Sources */,

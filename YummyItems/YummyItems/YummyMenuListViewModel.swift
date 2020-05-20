@@ -25,13 +25,13 @@ class YummyMenuListViewModel: ObservableObject {
         return formatter
     }()
 
-    func totalPrice() -> String {
+    func totalPrice(enableFormatter: Bool = true) -> String {
         var totalPrice: Int = 0
         totalPrice = selectedItems.reduce(totalPrice, { (accumulatedValue, nextItem) -> Int in
             let finalValue = (accumulatedValue + Int(nextItem.cost)!)
             return finalValue
         })
-        return getFormatted(currency: "\(totalPrice)")
+        return enableFormatter ? getFormatted(currency: "\(totalPrice)") : "\(totalPrice)"
     }
 
     func getFormatted(currency: String) -> String {
@@ -42,7 +42,7 @@ class YummyMenuListViewModel: ObservableObject {
     }
 
     func placeOrderFor(name: String) {
-        CoreDataManager.saveOrderDetails(for: name.isEmpty ? "Customer" : name, details: selectedItems, totalPrice: "\(totalPrice())", customerImage: customerImage)
+        CoreDataManager.saveOrderDetails(for: name.isEmpty ? "Customer" : name, details: selectedItems, totalPrice: "\(totalPrice(enableFormatter: false))", customerImage: customerImage)
         placedOrder = true
     }
 }

@@ -18,16 +18,16 @@ struct OrderDetailView: View {
             OrderDetailRow(titleLabel: "Customer", descLabel: self.orderDetailViewModel.customerName, countLabel: "")
             OrderDetailRow(titleLabel: "Order Date: ", descLabel: self.orderDetailViewModel.getFormattedDate(for: self.orderDetailViewModel.orderDetails.date) ?? "--", countLabel: "")
             Rectangle()
-                .fill(Color.purple)
+                .fill(Color.red)
                 .frame(maxWidth: .infinity, maxHeight: 1.0/UIScreen.main.scale)
             OrderDetailRow(titleLabel: "Total: ", descLabel: self.orderDetailViewModel.getFormatted(currency: self.orderDetailViewModel.totalCost), countLabel: "", titleFont: 25, descFont: 30.0)
             Rectangle()
-                .fill(Color.purple)
+                .fill(Color.red)
                 .frame(maxWidth: .infinity, maxHeight: 1.0/UIScreen.main.scale)
             VStack {
                 ForEach(Array(self.orderDetailViewModel.orderItems.keys), id: \.self) { (key: ItemCategory) in
                     Section(header: Text(key.rawValue)
-                        .foregroundColor(Color.purple), content: {
+                        .foregroundColor(Color.red), content: {
                             ForEach(self.orderDetailViewModel.orderItems[key]!, id: \.self) { (orderItem: OrderItem) in
                                 OrderDetailRow(titleLabel: self.orderDetailViewModel.getOrderTitle(for: orderItem), descLabel: self.orderDetailViewModel.getOrderDesc(for: orderItem), countLabel: self.orderDetailViewModel.getOrderItemCount(for: orderItem))
                             }
