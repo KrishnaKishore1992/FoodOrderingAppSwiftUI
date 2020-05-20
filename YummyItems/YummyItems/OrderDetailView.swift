@@ -14,6 +14,7 @@ struct OrderDetailView: View {
     
     var body: some View {
         ScrollView {
+            CustomerImageView(customerImage: self.orderDetailViewModel.customerImage)
             OrderDetailRow(titleLabel: "Customer", descLabel: self.orderDetailViewModel.customerName, countLabel: "")
             OrderDetailRow(titleLabel: "Order Date: ", descLabel: self.orderDetailViewModel.getFormattedDate(for: self.orderDetailViewModel.orderDetails.date) ?? "--", countLabel: "")
             Rectangle()
@@ -35,6 +36,22 @@ struct OrderDetailView: View {
             }
         }.padding()
             .navigationBarTitle("Order Details")
+    }
+}
+
+struct CustomerImageView: View {
+    
+    let customerImage: UIImage?
+    
+    var body: some View {
+        if let customerImage = self.customerImage {
+            return AnyView(Image(uiImage: customerImage).resizable()
+                .frame(width: 100, height: 100)
+                .cornerRadius(50.0)
+            )
+        } else {
+            return AnyView(EmptyView())
+        }
     }
 }
 

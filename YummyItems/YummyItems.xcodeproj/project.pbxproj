@@ -23,6 +23,7 @@
 		73E341C4246A8491000CC179 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E341C3246A8491000CC179 /* Extensions.swift */; };
 		73E341C6246A8496000CC179 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E341C5246A8496000CC179 /* Items.swift */; };
 		73E341C8246A851D000CC179 /* YummyMenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E341C7246A851D000CC179 /* YummyMenuListViewModel.swift */; };
+		73FBE03824742CD800614A9E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FBE03724742CD800614A9E /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		73E341C3246A8491000CC179 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		73E341C5246A8496000CC179 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		73E341C7246A851D000CC179 /* YummyMenuListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummyMenuListViewModel.swift; sourceTree = "<group>"; };
+		73FBE03724742CD800614A9E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		73FD91262474EB1600867CF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 			children = (
 				73E341A9246A8469000CC179 /* YummyItems */,
 				73E341A8246A8469000CC179 /* Products */,
+				73FD91252474EB1600867CF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +90,7 @@
 				73255ECD246D0D0C00ABF3CA /* OrderDetailView.swift */,
 				73255ECF246D105A00ABF3CA /* OrderDetailViewModel.swift */,
 				738E457D246BFC5E003E1F0D /* CoreDataManager.swift */,
+				73FBE03724742CD800614A9E /* ImagePicker.swift */,
 				73E341C1246A847B000CC179 /* OrderItems.plist */,
 				73E341C5246A8496000CC179 /* Items.swift */,
 				73E341B3246A846A000CC179 /* Assets.xcassets */,
@@ -103,6 +108,14 @@
 				73E341B6246A846A000CC179 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		73FD91252474EB1600867CF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73FD91262474EB1600867CF7 /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73FBE03824742CD800614A9E /* ImagePicker.swift in Sources */,
 				73E341C4246A8491000CC179 /* Extensions.swift in Sources */,
 				73E341AB246A8469000CC179 /* AppDelegate.swift in Sources */,
 				73E341AD246A8469000CC179 /* SceneDelegate.swift in Sources */,

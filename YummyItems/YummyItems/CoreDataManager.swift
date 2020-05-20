@@ -16,13 +16,14 @@ struct CoreDataManager {
         return appdelegate.persistentContainer.viewContext
     }()
     
-    static func saveOrderDetails(for customer: String, details: [Item], totalPrice: String) {
+    static func saveOrderDetails(for customer: String, details: [Item], totalPrice: String, customerImage: UIImage?) {
         
         let sameCategoryItems = Dictionary(grouping: details) { $0.id }
         let order = Order(context: viewContext)
         order.totalPrice = totalPrice
         order.customer = customer
         order.date = Date()
+        order.customerImage = customerImage
         let orderDetails = NSMutableSet()
         for menu in sameCategoryItems {
             let orderItem = OrderItem(context: viewContext)

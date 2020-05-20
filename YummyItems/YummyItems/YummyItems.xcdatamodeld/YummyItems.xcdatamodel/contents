@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
         <attribute name="customer" optional="YES" attributeType="String"/>
+        <attribute name="customerImage" optional="YES" attributeType="Transformable" customClassName="UIKit.UIImage"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="totalPrice" optional="YES" attributeType="String"/>
         <relationship name="orderDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItem"/>
@@ -14,7 +15,7 @@
         <attribute name="price" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Order" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Order" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="OrderItem" positionX="-54" positionY="18" width="128" height="118"/>
     </elements>
 </model>

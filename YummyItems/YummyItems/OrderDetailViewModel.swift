@@ -34,6 +34,10 @@ class OrderDetailViewModel: ObservableObject {
         orderDetails.customer ?? "--"
     }
     
+    var customerImage: UIImage? {
+        orderDetails.customerImage
+    }
+    
     var totalCost: String {
         orderDetails.totalPrice ?? "--"
     }
@@ -56,7 +60,7 @@ class OrderDetailViewModel: ObservableObject {
     func getOrderTitle(for item: OrderItem) -> String {
         item.name ?? "--"
     }
-    
+
     func getOrderItemCount(for item: OrderItem) -> String {
         item.count ?? "--"
     }

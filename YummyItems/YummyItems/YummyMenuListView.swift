@@ -18,32 +18,37 @@ struct YummyMenuList: View {
         NavigationView {
             VStack {
                 HStack(spacing: 10){
+                    VStack(spacing: 05) {
+                        HStack(spacing: 3) {
+                            Text("Item(s): ")
+                            Text("\(self.viewModel.selectedItems.count)")
+                                .foregroundColor(Color.red)
+                        }.frame(alignment: .leading)
+                        HStack(spacing: 3) {
+                            Text("Total Cost: ")
+                            Text(self.viewModel.totalPrice())
+                                .foregroundColor(Color.red)
+                        }.frame(alignment: .leading)
+                    }.padding(.top, 15)
+                    ProfilePicView(image: self.$viewModel.customerImage, isShowingImagePicker: self.$viewModel.isImagePickerShown).sheet(isPresented: self.$viewModel.isImagePickerShown) {
+                        ImagePicker(isImagePickerShown: self.$viewModel.isImagePickerShown, image: self.$viewModel.customerImage)
+                    }.frame(width: 100, height: 100)
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(50)
+                }
+                List() {
                     VStack {
                         Text("Customer Name")
                             .foregroundColor(Color.red)
                             .font(.caption)
                             .frame(alignment: Alignment(horizontal: .center, vertical: .bottom))
                         TextField("Enter Customer Name", text: self.$viewModel.customerName)
-                            .frame(width: 100, height: 30, alignment: .trailing)
+                            .frame(height: 30, alignment: .trailing)
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                             .foregroundColor(Color.red)
                             .multilineTextAlignment(.center)
                             .border(Color.gray, width: 1.0/UIScreen.main.scale)
-                    }.frame(alignment: .center)
-                    VStack(spacing: 05) {
-                        HStack(spacing: 3) {
-                            Text("Item(s): ")
-                            Text("\(self.viewModel.selectedItems.count)")
-                                .foregroundColor(Color.red)
-                        }.frame(width: 200, alignment: .leading)
-                        HStack(spacing: 3) {
-                            Text("Total Cost: ")
-                            Text(self.viewModel.totalPrice())
-                                .foregroundColor(Color.red)
-                        }.frame(width: 200, alignment: .leading)
-                    }.padding(.top, 15)
-                }
-                List() {
+                    }.padding(.bottom, 10.0)
                     ForEach(self.viewModel.items, id: \.category) { menu in
                         Section(header:  HStack(){
                             Text(menu.category.rawValue)
@@ -174,6 +179,42 @@ struct StepperButton: View {
             .background(Color(UIColor.gray_R238_G238_B238))
     }
 }
+
+struct ProfilePicView: View {
+    
+    @Binding var image: UIImage?
+    @Binding var isShowingImagePicker: Bool
+    
+    var body: some View {
+        
+        if let customerImage = image {
+            return AnyView(ZStack(alignment: .bottom){
+                Image(uiImage: customerImage)
+                    .resizable()
+                Rectangle()
+                    .fill(Color.black)
+                    .opacity(0.4)
+                    .frame(width: 100, height: 30, alignment: .bottom)
+                Button(action: {
+                    self.isShowingImagePicker = true
+                }) {
+                    Text("Edit")
+                        .frame(alignment: .center)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 14.0))
+                }.padding(.bottom, 10)
+            })
+        } else {
+            return AnyView(Button(action: {
+                self.isShowingImagePicker = true
+            }) {
+                Text("Customer\nPhoto")
+                    .frame(alignment: .center)
+            })
+        }
+    }
+}
+
  /*   I am trying to implement small animation while List view is dragging based on the content offset it moved in SwiftUI. Could you please help me out how to identify content offset of the Listview similarly like in UITableView.How Can I shift my List View content Insets of 50px from bottom just like set content insets in UITableview so that scrollable view will shift up by provided padding.
 
     How to identify when a List is scrolled & to get visible cell items(Visible Indexpaths in case of UITableViews)

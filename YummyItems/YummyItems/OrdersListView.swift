@@ -62,9 +62,3 @@ struct OrdersListView: View {
         OrderDetailView(orderDetailViewModel: OrderDetailViewModel(orderDetails: element))
     }
 }
-
-struct OrdersListView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrdersListView()
-    }
-}
