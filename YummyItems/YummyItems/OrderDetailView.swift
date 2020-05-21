@@ -14,7 +14,11 @@ struct OrderDetailView: View {
     
     var body: some View {
         ScrollView {
-            CustomerImageView(customerImage: self.orderDetailViewModel.customerImage)
+            CustomerImageView(customerImage: self.orderDetailViewModel.customerImage).onTapGesture {
+                if self.orderDetailViewModel.customerImage != nil {
+                    self.orderDetailViewModel.showImagePreview.toggle()
+                }
+            }
             OrderDetailRow(titleLabel: "Customer", descLabel: self.orderDetailViewModel.customerName, countLabel: "")
             OrderDetailRow(titleLabel: "Order Date: ", descLabel: self.orderDetailViewModel.getFormattedDate(for: self.orderDetailViewModel.orderDetails.date) ?? "--", countLabel: "")
             Rectangle()
@@ -35,7 +39,9 @@ struct OrderDetailView: View {
                 }.padding(10)
             }
         }.padding()
-            .navigationBarTitle("Order Details")
+            .sheet(isPresented: self.$orderDetailViewModel.showImagePreview) {
+                ImagePreviewView(image: self.orderDetailViewModel.customerImage!, showImagePreview: self.$orderDetailViewModel.showImagePreview, customerName: self.orderDetailViewModel.customerName)
+        }.navigationBarTitle("Order Details")
     }
 }
 

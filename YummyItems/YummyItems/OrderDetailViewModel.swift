@@ -12,6 +12,7 @@ import UIKit
 class OrderDetailViewModel: ObservableObject {
     
     @Published var orderDetails: Order
+    @Published var showImagePreview: Bool = false
     
     private var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
